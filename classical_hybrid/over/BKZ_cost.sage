@@ -2,9 +2,9 @@ gp.read("bkzsim.gp")
 
 
 
-#computes the estimated cost of bkz as a function of the blocksize, number of rounds and dimension of the lattice
-def bkzoperations_over(bs,dim,rounds):
-	return RR(0.187281*bs*log(bs, 2)-1.0192*bs+ log((dim)*rounds,2) +16.1)
+#computes the estimated cost of bkz as a function of the blocksize beta, number of rounds and dimension of the lattice
+def bkzoperations_over(beta,dim,rounds):
+	return RR(0.187281*beta*log(beta, 2)-1.0192*beta+ log((dim)*rounds,2) +16.1)
 
 	
 
