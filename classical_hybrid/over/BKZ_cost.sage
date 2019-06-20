@@ -22,12 +22,6 @@ def bkzcosts_mult_rounds(dim, delta_target):
 	return bkzoperations_over(min(k,dim),dim,rounds)
 
 
-
-
-
-def minimal_delta(dim):
-	return ((((pi*dim)**(1/dim))*dim)/(2*pi*e))**(1/(2*(dim-1)))
-
 # Core-sieve cost model for BKZ with blocksize beta
 # Returns the log of the estimated cost of BKZ under the core-sieve cost model
 def bkz_operations_coresieve(beta):
