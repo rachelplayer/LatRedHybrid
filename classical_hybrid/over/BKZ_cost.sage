@@ -16,8 +16,8 @@ def bkzcosts_mult_rounds(dim, x):
 	k =36
 	while RR(((((pi*k)**(1/k))*k)/(2*pi*e))**(1/(2*(k-1))))>RR(x):
 		k=k+1
-	iterations = ZZ(gp.simulate(dim,min(k,dim),x)[3]) 
-	return bkzoperations_over(min(k,dim),dim,iterations)
+	rounds = ZZ(gp.simulate(dim,min(k,dim),x)[3]) 
+	return bkzoperations_over(min(k,dim),dim,rounds)
 
 
 
