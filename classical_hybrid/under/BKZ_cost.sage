@@ -8,12 +8,12 @@ def bkzoperations(beta,dim,rounds):
 def bkzcosts_one_round(dim, delta_target):
 
 	# Find the minimal block size achieving delta_target according to Chen's thesis
-	k = 36
-	while RR(((((pi*k)**(1/k))*k)/(2*pi*e))**(1/(2*(k-1))))>RR(delta_target):
-		k=k+1
+	beta = 36
+	while RR(((((pi*beta)**(1/beta))*beta)/(2*pi*e))**(1/(2*(beta-1))))>RR(delta_target):
+		beta=beta+1
 
 	# Return the runtime, computed using bkzoperations()	
-	return bkzoperations(min(k,dim),dim,1)
+	return bkzoperations(min(beta,dim),dim,1)
 
 # Core-sieve cost model for BKZ with blocksize beta
 # Returns the log of the estimated cost of BKZ under the core-sieve cost model
