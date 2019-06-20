@@ -18,12 +18,4 @@ def bkzcosts_one_round(dim, x):
 	return bkzoperations(min(k,dim),dim,1)
 
 
-
-
-
-
-def minimal_delta(dim):
-	return ((((pi*dim)**(1/dim))*dim)/(2*pi*e))**(1/(2*(dim-1)))
-	
-
 	
