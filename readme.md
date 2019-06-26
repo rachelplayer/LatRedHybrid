@@ -4,7 +4,10 @@ Sage implementations for the optimization of the attack parameters and security 
 Licence:
 Public domain.
 
-Note: This code was provided by Thomas Wunderer.
+Note: The original code was provided by Thomas Wunderer. Rachel Player has edited the code to make the following changes:
+- provide documentation via comments
+- add additional cost models for BKZ
+- rename variables to align with the notation in [2]
 
 
 [1] Johannes A. Buchmann, Florian Göpfert, Rachel Player, and Thomas Wunderer. On the hardness of LWE with binary error: Revisiting the hybrid lattice-reduction and meet-in-the-middle attack. In Progress in Cryptology - AFRICACRYPT 2016 - 8th International Conference on Cryptology in Africa, Fes, Morocco, April 13-15, 2016, Proceedings, pages 24 - 43, 2016.
