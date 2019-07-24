@@ -26,8 +26,8 @@ def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03
 
 		# c_minus1 and c_1 are the expected number of -1 and 1 entries in w'_g, a guess for half of w_g
 		# 2c_minus1 and 2c_1 are the expected number of -1 and 1 entries in w_g
-		c_minus1 = r * h / 4*n
-		c_1 = r * h / 4*n
+		c_minus1 = round(r * h / 4*n)
+		c_1 = round(r * h / 4*n)
 
 		# Define c_0 as the expected number of 0 entries in w'_g, a guess for half of w_g
 		c_0 = r - c_minus1 - c_1
