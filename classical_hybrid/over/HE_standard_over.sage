@@ -55,7 +55,7 @@ def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03
 		# Denote delta by x 
 		# Inner function with fixed r, c_1, c_minus1, det, dim, q, Y
 		def f(x):
-			f_x = RR(bkz_costs_coresieve(x) - log(nr_loops_HE(r, c1, c_minus1, dim, det, x, Y, q, size_S) * rt_NP_over(dim), 2))
+			f_x = RR(bkz_costs_coresieve(x) - log(nr_loops_HE(r, c_1, c_minus1, dim, det, x, Y, q, size_S) * rt_NP_over(dim), 2))
 			return f_x
 	
 		delta_r = find_zero(f, "x", min_delta, max_delta, value=0, args = {}, eps = 1, print_steps = false)
