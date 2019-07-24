@@ -16,19 +16,24 @@ def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03
 	# Set the usual homomorphic encryption LWE standard deviation
 	sigma = 3.2
 
-	# Determine the scale factor nu for the Bai-Galbraith rebalancing
-	nu = sqrt(n-r/h) * sigma
-
-	# The determinant of the lattice
-	det = nu**(n-r) * q**m
-
 	for r in k_vals:
 
+		# Determine the scale factor nu for the Bai-Galbraith rebalancing
+		nu = sqrt(n-r/h) * sigma
+
+		# The determinant of the lattice
+		det = nu**(n-r) * q**m
+
+		# c_minus1 and c_1 are the expected number of -1 and 1 entries in w'_g, a guess for half of w_g
+		# 2c_minus1 and 2c_1 are the expected number of -1 and 1 entries in w_g
 		c_minus1 = r * h / 4*n
 		c_1 = r * h / 4*n
 
 		# Define c_0 as the expected number of 0 entries in w'_g, a guess for half of w_g
 		c_0 = r - c_minus1 - c_1
+
+		# We also need c_0_tilde, the expected number of 0 entries in w_g
+		c_0_tilde = r - 2*c_1 - 2*c_minus1
 
 		# The dimension of the lattice reduction
 		dim = m + n - r
@@ -36,9 +41,13 @@ def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03
 		# The expected Euclidean norm Y of || w_l ||
 		Y = sigma * sqrt(dim)
 
+		# To calculate p_c we'll need the expected number of nonzero entries in w_g
+		h_wg = h * (r/n)
+
 		# The probability p_c that w_g has exactly 2c_1 entries equal to 1 and 2c_minus1 entries equal to -1
+		# This is equal to number of vectors with 2c_1 1s and 2c_minus1 -1s / number of ternary vectors with Hamming weight h
 		# This will be used to determine success probability as p_succ = p_c * p_NP
-		p_c = 
+		p_c = multinomial(2*c_minus1, c_0_tilde, 2*c_1) / (binomial(r, h_wg) * 2**h_wg)
 
 		# We assume that |S|=1 in the LWE case
 		size_S = 1
