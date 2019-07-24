@@ -16,7 +16,16 @@ def rt_NP_over(dim):
 	return dim^2/(2^(1.06))
 
 
-
+# The functions nr_loops() determine L, the expected number of loops in the hybrid attack
+# In the functions nr_loops(), p_s denotes what is referred to as the probability p
+def nr_loops_HE(r, c1, c_minus1, dim, det, delta, error_norm, q, size_S):
+	p_s = is_s_admissable(dim, det, error_norm, delta,q)
+	if RR(p_s) <= 0:
+		print "The probability p is negative or zero, p, delta = ", p_s, delta
+		p_s = (delta-1) * 10 ** (-500)
+	numerator = binomial(r,c_1) * binomial(r-c_1,c_minus1)
+	denominator = sqrt(p_s * size_S * binomial(2*c1,c1) * binomial(2*c_minus1, c_minus1))
+	return numerator/denominator
 
 
 def nr_loops_new(r,c,dim, det, delta, error_norm,q, size_S):
