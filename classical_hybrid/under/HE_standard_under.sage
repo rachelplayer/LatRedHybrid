@@ -9,7 +9,7 @@ It can be used to estimate the cost of hybrid attack for typical HE parameters,
 according to Wunderer's analyis.
 """      
 	
-def find_r_HE_under(n, q, m, h, k_vals = [100], min_delta = 1.002, max_delta = 1.03):
+def find_r_HE_under(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.03):
 	global time_map
 	time_map = {}
 
@@ -55,7 +55,8 @@ def find_r_HE_under(n, q, m, h, k_vals = [100], min_delta = 1.002, max_delta = 1
 		# Denote delta by x 
 		# Inner function with fixed r, c_1, c_minus1, det, dim, q, Y
 		def f(x):
-			f_x = RR(bkzcosts_one_round(dim, x) - log(nr_loops_HE(r, c_1, c_minus1, dim, det, x, Y, q, size_S) * rt_NP_under(dim) / (p_c * prob_NP(dim, det, Y, x, q)), 2))
+			loops = nr_loops_HE(r, c_1, c_minus1, dim, det, x, Y, q, size_S)
+			f_x = RR(bkzcosts_one_round(dim, x) - log(loops * rt_NP_under(dim) / (p_c * prob_NP(dim, det, Y, x, q)), 2))
 			return f_x
 	
 		delta_r = find_zero(f, "x", min_delta, max_delta, value=0, args = {}, eps = 1, print_steps = false)
