@@ -42,7 +42,7 @@ def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03
 		Y = sigma * sqrt(dim)
 
 		# To calculate p_c we'll need the expected number of nonzero entries in w_g
-		h_wg = h * (r/n)
+		h_wg = round(h * (r/n))
 
 		# The probability p_c that w_g has exactly 2c_1 entries equal to 1 and 2c_minus1 entries equal to -1
 		# This is equal to number of vectors with 2c_1 1s and 2c_minus1 -1s / number of ternary vectors with Hamming weight h

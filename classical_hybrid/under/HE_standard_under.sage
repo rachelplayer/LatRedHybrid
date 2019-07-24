@@ -26,8 +26,8 @@ def find_r_HE_under(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.
 
 		# c_minus1 and c_1 are the expected number of -1 and 1 entries in w'_g, a guess for half of w_g
 		# 2c_minus1 and 2c_1 are the expected number of -1 and 1 entries in w_g
-		c_minus1 = r * h / 4*n
-		c_1 = r * h / 4*n
+		c_minus1 = round(r * h / 4*n)
+		c_1 = round(r * h / 4*n)
 
 		# Define c_0 as the expected number of 0 entries in w'_g, a guess for half of w_g
 		c_0 = r - c_minus1 - c_1
@@ -42,7 +42,7 @@ def find_r_HE_under(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.
 		Y = sigma * sqrt(dim)
 
 		# To calculate p_c we'll need the expected number of nonzero entries in w_g
-		h_wg = h * (r/n)
+		h_wg = round(h * (r/n))
 
 		# The probability p_c that w_g has exactly 2c_1 entries equal to 1 and 2c_minus1 entries equal to -1
 		# This is equal to number of vectors with 2c_1 1s and 2c_minus1 -1s / number of ternary vectors with Hamming weight h
