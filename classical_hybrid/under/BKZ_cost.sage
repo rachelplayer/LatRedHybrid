@@ -21,7 +21,7 @@ def bkz_operations_coresieve(beta):
 	return RR(0.292*beta)
 
 # Determine the log of the (core-sieve) cost of BKZ to achieve target root Hermite factor delta_target
-def bkz_costs_coresieve(delta_target):
+def bkz_costs_coresieve(dim, delta_target):
 
     # Find the minimal block size achieving delta_target according to Chen's thesis
 	beta =36
@@ -29,4 +29,4 @@ def bkz_costs_coresieve(delta_target):
 		beta=beta+1
 
     # Return the runtime, computed using bkz_operations_coresieve()
-	return bkz_costs_coresieve(beta)
+	return bkz_operations_coresieve(min(beta,dim))

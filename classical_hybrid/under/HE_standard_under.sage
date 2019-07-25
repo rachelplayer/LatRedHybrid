@@ -56,11 +56,11 @@ def find_r_HE_under(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.
 		# Inner function with fixed r, c_1, c_minus1, det, dim, q, Y
 		def f(x):
 			loops = nr_loops_HE(r, c_1, c_minus1, dim, det, x, Y, q, size_S)
-			f_x = RR(bkzcosts_one_round(dim, x) - log(loops * rt_NP_under(dim) / (p_c * prob_NP(dim, det, Y, x, q)), 2))
+			f_x = RR(bkz_costs_coresieve(dim, x) - log(loops * rt_NP_under(dim) / (p_c * prob_NP(dim, det, Y, x, q)), 2))
 			return f_x
 	
 		delta_r = find_zero(f, "x", min_delta, max_delta, value=0, args = {}, eps = 1, print_steps = false)
-		bit_hardness_r = RR(bkz_costs_coresieve(delta_r) + 1)
+		bit_hardness_r = RR(bkz_costs_coresieve(dim, delta_r) + 1)
 		
 		time_map[r] = (delta_r, bit_hardness_r)
 		print r, time_map[r]
