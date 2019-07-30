@@ -9,7 +9,7 @@ It can be used to estimate the cost of hybrid attack for typical HE parameters,
 according to Wunderer's analyis.
 """  
 	
-def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03):
+def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.008):
 	global time_map
 	time_map = {}
 
