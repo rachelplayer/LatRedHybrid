@@ -24,7 +24,15 @@ def nr_loops_HE(r,c_1, c_minus1, dim, det, delta, error_norm, q, size_S):
 	denominator = sqrt(p_s * size_S * binomial(2*c_1,c_1) * binomial(2*c_minus1, c_minus1))
 	return numerator/denominator
 
-
+# Modify nr_loops() so as not to calculate the probability p, rather just set p = 1
+def nr_loops_HE_p_equals_1(r, c_1, c_minus1, dim, det, delta, error_norm, q, size_S):
+	p_s = 1
+	if RR(p_s) <= 0:
+		print "The probability p is negative or zero, p, delta = ", p_s, delta
+		p_s = (delta-1) * 10 ** (-500)
+	numerator = binomial(r,c_1) * binomial(r-c_1,c_minus1)
+	denominator = sqrt(p_s * size_S * binomial(2*c_1,c_1) * binomial(2*c_minus1, c_minus1))
+	return numerator/denominator
 
 def nr_loops_new(r,c,dim, det, delta, error_norm,q, size_S):
 #	print r,c,dim,RR(log(det, 2)),delta
