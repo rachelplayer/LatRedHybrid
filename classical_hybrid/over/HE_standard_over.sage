@@ -9,7 +9,7 @@ It can be used to estimate the cost of hybrid attack for typical HE parameters,
 according to Wunderer's analyis.
 """  
 	
-def find_r_HE_over(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.03):
+def find_r_HE_over(n, q, m, h, k_vals = [4], min_delta = 1.002, max_delta = 1.03):
 	global time_map
 	time_map = {}
 
@@ -57,7 +57,7 @@ def find_r_HE_over(n, q, m, h, k_vals = [20], min_delta = 1.002, max_delta = 1.0
 		def f(x):
 			# Default behaviour is to set probability p = 1, to calculate explicity set calc_p = True
 			loops = nr_loops_HE(r, c_1, c_minus1, dim, det, x, Y, q, size_S)
-			
+
 			f_x = RR(bkz_costs_coresieve(dim, x) - log(loops * rt_NP_over(dim), 2))
 			return f_x
 	
