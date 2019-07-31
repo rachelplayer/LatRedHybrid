@@ -149,7 +149,7 @@ def is_s_admissable(dim, det, error_norm, delta,q):
 	f = (1-y^2)^((dim-3)/2)
 	g = integrate(f, y)
 
-	b = getB(delta,det,dim,q)
+	b = getB(delta,det,dim)
 	r = [b[i] / (2*error_norm) for i in range(dim)]
 	return prod(1-get_prob(dim, r[i], g) for i in range(dim))	
 	
@@ -167,7 +167,7 @@ def prob_NP(dim, det, error_norm, delta,q):
 	f = (1-y^2)^((dim-3)/2)
 	g = integrate(f, y)
 
-	b = getB(delta,det,dim,q)
+	b = getB(delta,det,dim)
 	r_va = [b[i] / (2*error_norm) for i in range(dim)]
 	return prod(1-2*get_prob_NP(dim, r_va[i], g) for i in range(dim))
 	
